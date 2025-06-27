@@ -266,7 +266,53 @@
 	  'autoclose': true
 	});
 
+	// Dark Mode Toggle
+	var darkModeToggle = function() {
+		var darkMode = localStorage.getItem('darkMode');
+		var toggleButton = $('#dark-mode-toggle');
+		var body = $('body');
 
+		// Function to enable dark mode
+		var enableDarkMode = function() {
+			body.addClass('dark-mode');
+			localStorage.setItem('darkMode', 'enabled');
+			if (toggleButton.length) { // Check if button exists
+				toggleButton.text('Toggle Light Mode'); // Update button text
+			}
+		}
+
+		// Function to disable dark mode
+		var disableDarkMode = function() {
+			body.removeClass('dark-mode');
+			localStorage.setItem('darkMode', null); // Using null or removing item
+			if (toggleButton.length) { // Check if button exists
+				toggleButton.text('Toggle Dark Mode'); // Update button text
+			}
+		}
+
+		// Check if dark mode is enabled on page load
+		if (darkMode === 'enabled') {
+			enableDarkMode();
+		} else {
+			// Ensure button text is correct if not in dark mode initially
+			if (toggleButton.length) {
+				toggleButton.text('Toggle Dark Mode');
+			}
+		}
+
+		// Toggle dark mode on button click
+		if (toggleButton.length) {
+			toggleButton.on('click', function() {
+				darkMode = localStorage.getItem('darkMode'); // Re-check current state
+				if (darkMode !== 'enabled') {
+					enableDarkMode();
+				} else {
+					disableDarkMode();
+				}
+			});
+		}
+	}
+	darkModeToggle();
 
 
 })(jQuery);
