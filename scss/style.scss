@@ -1,16 +1,151 @@
 @import 'bootstrap/bootstrap';
 @import 'bootstrap/variables';
 
-$font-primary: 'Poppins',Arial, sans-serif;
-$font-secondary: 'Arizonia', cursive;
+// Define Color Variables
+:root {
+  --font-primary: 'Poppins', Arial, sans-serif;
+  --font-secondary: 'Arizonia', cursive;
 
-$white: #fff;
-$black: #000000;
-$darken: #33313b;
+  // Light Theme Colors
+  --bg-color: #fff;
+  --text-color: #666666; // lighten($black, 60%)
+  --text-color-dark: rgba(0,0,0,.8);
+  --primary-color: #f15d30;
+  --secondary-color: #040e26;
+  --darken-color: #33313b;
+  --white-color: #fff;
+  --black-color: #000000;
+  --border-color: rgba(0,0,0,.1);
+  --input-bg-color: #fff;
+  --input-text-color: #000;
+  --input-placeholder-color: rgba(0,0,0,.4);
+  --navbar-brand-color: var(--white-color);
+  --navbar-link-color: var(--white-color);
+  --navbar-link-hover-color: var(--white-color);
+  --navbar-toggler-color: rgba(255,255,255,.5);
+  --navbar-toggler-hover-color: var(--primary-color);
+  --scrolled-navbar-bg: var(--white-color);
+  --scrolled-navbar-brand-color: var(--black-color);
+  --scrolled-navbar-link-color: var(--black-color);
+  --scrolled-navbar-link-active-color: var(--primary-color);
+  --scrolled-navbar-toggler-color: rgba(0,0,0,.5);
+  --hero-overlay-bg: var(--black-color);
+  --hero-text-color: var(--white-color);
+  --hero-subheading-color: var(--primary-color);
+  --search-tab-bg: var(--white-color);
+  --search-tab-link-bg: var(--primary-color);
+  --search-tab-link-color: var(--white-color);
+  --search-tab-link-active-bg: var(--white-color);
+  --search-tab-link-active-color: #808080; // lighten($black, 50%)
+  --footer-bg: var(--white-color);
+  --footer-text-color: rgba(0,0,0,.5);
+  --footer-heading-color: var(--black-color);
+  --footer-link-color: rgba(0,0,0,.5);
+  --footer-link-hover-color: var(--primary-color);
+  --footer-social-bg: var(--primary-color);
+  --footer-social-icon-color: var(--white-color);
+  --loader-bg: rgba(255,255,255,0.9);
+  --loader-fullscreen-bg: #fff;
+  --path-bg-stroke: #eeeeee;
+  --path-stroke: #F96D00;
+  --section-bg-light: #f9fafb;
+  --box-shadow-color: rgba(0,0,0,0.11);
+  --box-shadow-light-color: rgba(0,0,0,0.09);
+  --box-shadow-dark-color: rgba(0,0,0,0.4);
+  --text-lighten-black-70: #b3b3b3; // lighten($black, 70%)
+  --text-lighten-black-85: #d9d9d9; // lighten($black, 85%)
+  --text-lighten-black-90: #e6e6e6; // lighten($black, 90%)
+  --text-lighten-black-50: #808080; // lighten($black, 50%)
+  --text-lighten-black-40: #666666; // lighten($black, 40%)
+  --text-lighten-black-30: #4d4d4d; // lighten($black, 30%)
+  --text-lighten-black-10: #1a1a1a; // lighten($black, 10%)
+  --rgba-white-005: rgba(255,255,255,.05);
+  --rgba-white-08: rgba(255,255,255,.8);
+  --rgba-white-09: rgba(255,255,255,.9);
+  --rgba-black-002: rgba(0,0,0,.02);
+  --rgba-black-005: rgba(0,0,0,.05);
+  --rgba-black-01: rgba(0,0,0,.1);
+  --rgba-black-07: rgba(0,0,0,.7);
+  --gray-300: #dee2e6; // Assuming bootstrap's gray-300
+  --ccc: #ccc;
+}
 
-$primary: #f15d30;
-$secondary: #040e26;
+body.dark-mode {
+  // Dark Theme Colors
+  --bg-color: #1a1a1a; // A dark background
+  --text-color: #cccccc; // Lighter text for dark mode
+  --text-color-dark: rgba(255,255,255,.8);
+  --primary-color: #f15d30; // Keep primary color, or adjust if needed
+  --secondary-color: #1c2a4a; // Adjust secondary if needed
+  --darken-color: #222028; // Lighter version for dark mode if used as bg
+  --white-color: #1e1e1e; // Darker version of white
+  --black-color: #ffffff; // Lighter version of black (text)
+  --border-color: rgba(255,255,255,.1);
+  --input-bg-color: #2c2c2c;
+  --input-text-color: #ffffff;
+  --input-placeholder-color: rgba(255,255,255,.4);
+  --navbar-brand-color: var(--white-color); // Will be light text on dark nav
+  --navbar-link-color: var(--white-color);
+  --navbar-link-hover-color: var(--white-color);
+  --navbar-toggler-color: rgba(255,255,255,.5);
+  --navbar-toggler-hover-color: var(--primary-color);
+  --scrolled-navbar-bg: #222028; // Darker bg for scrolled nav
+  --scrolled-navbar-brand-color: var(--white-color);
+  --scrolled-navbar-link-color: var(--white-color);
+  --scrolled-navbar-link-active-color: var(--primary-color);
+  --scrolled-navbar-toggler-color: rgba(255,255,255,.5);
+  --hero-overlay-bg: var(--black-color); // Can be a darker shade or kept
+  --hero-text-color: var(--white-color);
+  --hero-subheading-color: var(--primary-color);
+  --search-tab-bg: #2c2c2c; // Darker tab content
+  --search-tab-link-bg: var(--primary-color);
+  --search-tab-link-color: #1e1e1e; // Darker text on primary
+  --search-tab-link-active-bg: #33313b; // Darker active tab
+  --search-tab-link-active-color: #f0f0f0; // Lighter text for active tab
+  --footer-bg: #1e1e1e;
+  --footer-text-color: rgba(255,255,255,.5);
+  --footer-heading-color: var(--white-color);
+  --footer-link-color: rgba(255,255,255,.5);
+  --footer-link-hover-color: var(--primary-color);
+  --footer-social-bg: var(--primary-color);
+  --footer-social-icon-color: #1e1e1e; // Darker icon on primary
+  --loader-bg: rgba(30,30,30,0.9);
+  --loader-fullscreen-bg: #1a1a1a;
+  --path-bg-stroke: #444444;
+  --path-stroke: #f15d30;
+  --section-bg-light: #222222;
+  --box-shadow-color: rgba(255,255,255,0.08);
+  --box-shadow-light-color: rgba(255,255,255,0.07);
+  --box-shadow-dark-color: rgba(255,255,255,0.3);
+  --text-lighten-black-70: #333333; // Darker version of lighten
+  --text-lighten-black-85: #262626;
+  --text-lighten-black-90: #1c1c1c;
+  --text-lighten-black-50: #7f7f7f;
+  --text-lighten-black-40: #999999;
+  --text-lighten-black-30: #b3b3b3;
+  --text-lighten-black-10: #e6e6e6;
+  --rgba-white-005: rgba(30,30,30,.05); // Darker shades for "white" alphas
+  --rgba-white-08: rgba(30,30,30,.8);
+  --rgba-white-09: rgba(30,30,30,.9);
+  --rgba-black-002: rgba(255,255,255,.02); // Lighter shades for "black" alphas
+  --rgba-black-005: rgba(255,255,255,.05);
+  --rgba-black-01: rgba(255,255,255,.1);
+  --rgba-black-07: rgba(255,255,255,.7);
+  --gray-300: #3a3f44; // Darker gray
+  --ccc: #555;
+}
 
+
+$font-primary: var(--font-primary);
+$font-secondary: var(--font-secondary);
+
+// SCSS variables now use CSS variables as fallbacks or for initial values if needed
+$white: var(--white-color);
+$black: var(--black-color);
+$darken: var(--darken-color);
+
+$primary: var(--primary-color);
+$secondary: var(--secondary-color);
 
 
 @mixin border-radius($radius) {
@@ -29,7 +164,7 @@ $secondary: #040e26;
 }
 
 @mixin gradient-background(){
-	background: rgba(32,124,229,1);
+	background: rgba(32,124,229,1); // This gradient seems specific, may need dark mode adjustments if used on backgrounds
 	background: -moz-linear-gradient(45deg, rgba(32,124,229,1) 0%, rgba(19,212,42,1) 100%);
 	background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(32,124,229,1)), color-stop(100%, rgba(19,212,42,1)));
 	background: -webkit-linear-gradient(45deg, rgba(32,124,229,1) 0%, rgba(19,212,42,1) 100%);
@@ -44,11 +179,11 @@ html {
 }
 body {
 	font-family: $font-primary;
-	background: $white;
+	background: var(--bg-color);
 	font-size: 16px;
 	line-height: 1.8;
 	font-weight: 400;
-	color: lighten($black,60%);
+	color: var(--text-color);
 	&.menu-show {
 		overflow: hidden;
 		position: fixed;
@@ -68,7 +203,7 @@ a {
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
 	line-height: 1.5;
-	color: rgba(0,0,0,.8);
+	color: var(--text-color-dark);
 	font-weight: 400;
 	font-family: $font-primary;
 }
@@ -86,7 +221,10 @@ h1, h2, h3, h4, h5,
 	right: 0;
 	z-index: 3;
 	@include media-breakpoint-down(md) {
-		background: $black!important;
+		background: $black!important; // This is var(--black-color) in dark mode it will be white. Consider specific var for this.
+		// Solution: Use a more specific variable or a direct color if it should always be dark.
+		// For now, assuming $black refers to the general "opposite" color.
+		// Or create --navbar-mobile-bg: #000; and body.dark-mode --navbar-mobile-bg: #222;
 		position: relative;
 		top: 0;
 		padding-top: 0;
@@ -99,11 +237,11 @@ h1, h2, h3, h4, h5,
 	}
 
 	.navbar-brand {
-		color: $white;
+		color: var(--navbar-brand-color);
 		padding-top: 1.5rem;
 		padding-bottom: 1.5rem;
 		@include media-breakpoint-down(md){
-			color: $white;
+			color: var(--navbar-brand-color); // Should be light on dark mobile nav
 			padding-top: 1rem;
 			padding-bottom: 1rem;
 		}
@@ -122,26 +260,48 @@ h1, h2, h3, h4, h5,
 				padding-bottom: 1.5rem;
 				padding-left: 20px;
 				padding-right: 20px;
-				color: $white;
+				color: var(--navbar-link-color);
 				font-weight: 500;
 				&:hover, &:focus {
-					color: $white;
+					color: var(--navbar-link-hover-color);
 				}
 				opacity: 1!important;
 				@include media-breakpoint-down(md){
 					padding-left: 0;
 					padding-right: 0;
 					padding-bottom: 0;
-					color: $white;
+					color: var(--navbar-link-color); // Should be light on dark mobile nav
+				}
+			}
+			// Dark Mode Toggle Button Styling
+			&#dark-mode-toggle-li { // Assuming the button is wrapped in an <li class="nav-item">
+				@include media-breakpoint-down(md) {
+					padding-left: 0; // Match other nav items on mobile
+					margin-top: 10px; // Add some space on mobile
+				}
+				#dark-mode-toggle {
+					padding-top: .5rem; // Adjust padding to better match nav links
+					padding-bottom: .5rem;
+					margin-top: .75rem; // Align with other cta buttons or nav links vertically
+					font-size: 14px; // Match nav-link font size or make slightly smaller
+					line-height: 1.5; // Ensure text is centered
+
+					@include media-breakpoint-down(md) {
+						width: 100%; // Make button full width on mobile
+						margin-top: 5px;
+						margin-left: 0;
+						padding-left: 15px; // Add some padding to align text
+						padding-right: 15px;
+					}
 				}
 			}
 
 			.dropdown-menu{
 				border: none;
-				background: $white;
-				-webkit-box-shadow: 0px 10px 34px -20px rgba(0,0,0,0.41);
-				-moz-box-shadow: 0px 10px 34px -20px rgba(0,0,0,0.41);
-				box-shadow: 0px 10px 34px -20px rgba(0,0,0,0.41);
+				background: var(--bg-color); // Use main background color for dropdown
+				-webkit-box-shadow: 0px 10px 34px -20px var(--box-shadow-dark-color);
+				-moz-box-shadow: 0px 10px 34px -20px var(--box-shadow-dark-color);
+				box-shadow: 0px 10px 34px -20px var(--box-shadow-dark-color);
 			}
 
 			
@@ -160,7 +320,7 @@ h1, h2, h3, h4, h5,
 					bottom: 10px;
 					left: 0;
 					width: 2px;
-					background: rgba($white, .05);
+					background: var(--rgba-white-005); // Use appropriate alpha color
 					@include media-breakpoint-down(md) {
 						display: none;
 					}
@@ -168,7 +328,7 @@ h1, h2, h3, h4, h5,
 			}
 			&.cta {
 				> a {
-					color: $white;
+					color: var(--white-color);
 					border: 1px solid $primary;
 					padding-top: .8rem;
 					padding-bottom: .8rem;
@@ -179,7 +339,7 @@ h1, h2, h3, h4, h5,
 					@include border-radius(2px);
 					span {
 						display: inline-block;
-						color: $white;
+						color: var(--white-color);
 					}
 					&:hover{
 						background: $primary;
@@ -209,7 +369,7 @@ h1, h2, h3, h4, h5,
 	}
 	.navbar-toggler {
 		border: none;
-		color: rgba(255,255,255,.5)!important;
+		color: var(--navbar-toggler-color) !important;
 		cursor: pointer;
 		padding-right: 0;
 		text-transform: uppercase;
@@ -217,7 +377,7 @@ h1, h2, h3, h4, h5,
 		letter-spacing: .1em;
 		&:hover, &:focus {
 			text-decoration: none;
-			color: $primary;
+			color: var(--navbar-toggler-hover-color) !important;
 			outline: none !important;
 		}
 	}
@@ -228,8 +388,8 @@ h1, h2, h3, h4, h5,
 		left: 0;
 		top: 0;
 		margin-top: -130px;
-		background: $white!important;
-		box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+		background: var(--scrolled-navbar-bg) !important;
+		box-shadow: 0 0 10px 0 var(--rgba-black-01);
 		// padding: 0;
 		.nav-item {
 			> .nav-link{
@@ -241,12 +401,12 @@ h1, h2, h3, h4, h5,
 			}
 			&.active {
 				> a {
-					color: $primary!important;
+					color: var(--scrolled-navbar-link-active-color) !important;
 				}
 			}
 			&.cta {
 				> a {
-					color: $white !important;
+					color: var(--white-color) !important; // Text on primary button
 					background: $primary;
 					border: none !important;
 					padding-top: .5rem!important;
@@ -257,7 +417,7 @@ h1, h2, h3, h4, h5,
 					@include border-radius(5px);
 					span {
 						display: inline-block;
-						color: $white !important;
+						color: var(--white-color) !important;
 					}
 				}
 				&.cta-colored {
@@ -280,8 +440,8 @@ h1, h2, h3, h4, h5,
 
 		.navbar-toggler {
 			border: none;
-			color: rgba(0,0,0,.5)!important;
-			border-color: rgba(0,0,0,.5)!important;
+			color: var(--scrolled-navbar-toggler-color) !important;
+			border-color: var(--scrolled-navbar-toggler-color) !important;
 			cursor: pointer;
 			// margin-right: 15px !important;
 			text-transform: uppercase;
@@ -292,9 +452,9 @@ h1, h2, h3, h4, h5,
 		.nav-link {
 			padding-top: 1rem!important;
 			padding-bottom: 1rem!important;
-			color: $black!important;
+			color: var(--scrolled-navbar-link-color) !important;
 			&.active {
-				color: $primary!important;
+				color: var(--scrolled-navbar-link-active-color) !important;
 			}
 		}
 		&.awake {
@@ -306,7 +466,7 @@ h1, h2, h3, h4, h5,
 		}
 
 		.navbar-brand {
-			color: $black;
+			color: var(--scrolled-navbar-brand-color);
 			padding-top: 1rem;
 			padding-bottom: 1rem;
 		}
@@ -320,8 +480,7 @@ h1, h2, h3, h4, h5,
 	span{
 		font-size: 10px;
 		font-weight: 600;
-		color: rgba(255,255,255,.9);
-		color: $primary;
+		color: var(--primary-color); // Span color within navbar brand
 		display: block;
 		letter-spacing: 1px;
 		text-transform: uppercase;
@@ -347,8 +506,8 @@ h1, h2, h3, h4, h5,
 		right: 0;
 		bottom: 0;
 		content: '';
-		opacity: .3;
-		background: $black;
+		opacity: .3; // Consider adjusting opacity for dark mode if needed
+		background: var(--hero-overlay-bg);
 	}
 	&.hero-wrap-2{
 
@@ -363,12 +522,12 @@ h1, h2, h3, h4, h5,
 	position: relative;
 	.subheading{
 		font-size: 30px;
-		color: $primary;
+		color: var(--hero-subheading-color);
 		font-family: $font-secondary;
 	}
 	h1 {
 		font-size: 55px;
-		color: $white;
+		color: var(--hero-text-color);
 		line-height: 1.2;
 		font-weight: 700;
 		@include media-breakpoint-down(md) {
@@ -382,11 +541,11 @@ h1, h2, h3, h4, h5,
 		font-size: 20px;
 		line-height: 1.5;
 		font-weight: 300;
-		color: rgba(255,255,255,.9);
+		color: var(--rgba-white-09); // Assuming this is on a dark background
 		strong{
 			font-weight: 700;
 			a{
-				color: $black;
+				color: var(--black-color); // This would be white text in dark mode on dark bg, adjust if needed
 			}
 		}
 		&.caps{
@@ -400,12 +559,12 @@ h1, h2, h3, h4, h5,
 		z-index: 99;
 		font-weight: 400;
 		span{
-			color: rgba(255,255,255,.8);
+			color: var(--rgba-white-08);
 			i{
-				color: rgba(255,255,255,.8);
+				color: var(--rgba-white-08);
 			}
 			a{
-				color: rgba(255,255,255,1);
+				color: var(--white-color); // Or a more specific breadcrumb link color
 				&:hover, &:focus{
 					color: $primary;
 					i{
@@ -431,7 +590,7 @@ h1, h2, h3, h4, h5,
 .icon-video{
 	width: 80px;
 	height: 80px;
-	background: $white;
+	background: var(--white-color);
 	animation: pulse 2s infinite;
 	@include border-radius(50%);
 	span{
@@ -457,21 +616,21 @@ h1, h2, h3, h4, h5,
 			padding: 10px 30px !important;
 			border-radius: 0;
 			margin-bottom: 0;
-			color: $white;
+			color: var(--search-tab-link-color);
 			font-size: 16px;
 			font-weight: 700;
 			position: relative;
 			display: inline-block;
 			border: 1px solid transparent;
-			background: $primary;
+			background: var(--search-tab-link-bg);
 			
 			@include border-radius(5px);
 			&:hover{
-				color: $white;
+				color: var(--search-tab-link-color);
 				@include transition(.3s);
 				border: 1px solid transparent;
-				background: rgba(255,255,255,1);
-				background: $primary;
+				// background: rgba(255,255,255,1); // This was $white
+				background: $primary; // Kept as primary
 				&:after{
 					opacity: 1;
 				}
@@ -482,11 +641,11 @@ h1, h2, h3, h4, h5,
 				}
 			}
 			&.active{
-				color: lighten($black,50%);
+				color: var(--search-tab-link-active-color);
 				@include transition(.3s);
 				border: 1px solid transparent;
-				background: rgba(255,255,255,1);
-				background: $white;
+				// background: rgba(255,255,255,1); // This was $white
+				background: var(--search-tab-link-active-bg);
 				&:after{
 					opacity: 1;
 				}
@@ -504,21 +663,21 @@ h1, h2, h3, h4, h5,
 		}
 	}
 	.tab-content{
-		background: $white;
+		background: var(--search-tab-bg);
 		@include border-radius(7px);
 		margin-top: -7px;
-		-webkit-box-shadow: 0px 10px 33px -27px rgba(0,0,0,0.4);
-		-moz-box-shadow: 0px 10px 33px -27px rgba(0,0,0,0.4);
-		box-shadow: 0px 10px 33px -27px rgba(0,0,0,0.4);
+		-webkit-box-shadow: 0px 10px 33px -27px var(--box-shadow-dark-color);
+		-moz-box-shadow: 0px 10px 33px -27px var(--box-shadow-dark-color);
+		box-shadow: 0px 10px 33px -27px var(--box-shadow-dark-color);
 	}
 }
 
 .search-wrap-1{
 	position: relative;
-	background: $white;
-	-webkit-box-shadow: 0px 10px 23px -8px rgba(0,0,0,.11);
-	-moz-box-shadow: 0px 10px 23px -8px rgba(0,0,0,.11);
-	box-shadow: 0px 10px 23px -8px rgba(0,0,0,.11);
+	background: var(--bg-color); // Changed from $white
+	-webkit-box-shadow: 0px 10px 23px -8px var(--box-shadow-color);
+	-moz-box-shadow: 0px 10px 23px -8px var(--box-shadow-color);
+	box-shadow: 0px 10px 23px -8px var(--box-shadow-color);
 	&.search-wrap-notop{
 		@include media-breakpoint-up(md){
 			margin-top: 0;
@@ -530,7 +689,7 @@ h1, h2, h3, h4, h5,
 		position: relative;
 		margin-bottom: 0;
 		width: 100%;
-		border-left: 1px solid rgba(0,0,0,.1);
+		border-left: 1px solid var(--border-color);
 		@include media-breakpoint-down(sm){
 			margin-bottom: 0;
 			border: none;
@@ -538,8 +697,7 @@ h1, h2, h3, h4, h5,
 		label{
 			font-weight: 700;
 			font-size: 14px;
-			color: rgba(0,0,0,.8);
-			color: $primary;
+			color: $primary; // Kept as primary
 			text-transform: uppercase;
 		}
 		.form-field{
@@ -554,28 +712,28 @@ h1, h2, h3, h4, h5,
 			height: inherit !important;
 			font-size: 16px;
 			border: none !important;
-			color: rgba(0,0,0,.4) !important;
+			color: var(--input-placeholder-color) !important; // Placeholder color
 			background: transparent !important;
 			@include border-radius(0);
 			&::-webkit-input-placeholder {
-			  color: rgba(0,0,0,.4) !important;
+			  color: var(--input-placeholder-color) !important;
 			}
 			&::-moz-placeholder {
-			  color: rgba(0,0,0,.4) !important;
+			  color: var(--input-placeholder-color) !important;
 			}
 			&:-ms-input-placeholder {
-			  color: rgba(0,0,0,.4) !important;
+			  color: var(--input-placeholder-color) !important;
 			}
 			&:-moz-placeholder {
-			  color: rgba(0,0,0,.4) !important;
+			  color: var(--input-placeholder-color) !important;
 			}
-			&.btn{
+			&.btn{ // This is the search button
 				font-size: 16px;
 				font-weight: 700;
 				text-transform: uppercase;
 				background: $primary !important;
 				border: none !important;
-				color: $white !important;
+				color: var(--white-color) !important; // Text on primary button
 				@include border-radius(0);
 				@include media-breakpoint-down(sm){
 					padding: 20px;
@@ -586,6 +744,9 @@ h1, h2, h3, h4, h5,
 			position: relative;
 			select {
 				appearance: none;
+				background-color: var(--input-bg-color); // Select background
+				color: var(--input-text-color); // Select text color
+				border: 1px solid var(--border-color); // Select border
 			}
 		}
 		.icon {
@@ -594,7 +755,7 @@ h1, h2, h3, h4, h5,
 			left: 0;
 			font-size: 16px;
 			transform: translateY(-50%);
-			color: rgba(0,0,0,.1);
+			color: var(--rgba-black-01); // Icon color
 			@include media-breakpoint-down(sm) {
 				right: 10px;
 			}
@@ -604,7 +765,7 @@ h1, h2, h3, h4, h5,
 
 
 .bg-light {
-	background: #f9fafb!important;
+	background: var(--section-bg-light) !important;
 }
 
 .bg-primary{
@@ -616,20 +777,20 @@ h1, h2, h3, h4, h5,
 .btn {
 	cursor: pointer;
 	@include border-radius(4px);
-	-webkit-box-shadow: 0px 24px 36px -11px rgba(0,0,0,0.09);
-	-moz-box-shadow: 0px 24px 36px -11px rgba(0,0,0,0.09);
-	box-shadow: 0px 24px 36px -11px rgba(0,0,0,0.09);
+	-webkit-box-shadow: 0px 24px 36px -11px var(--box-shadow-light-color);
+	-moz-box-shadow: 0px 24px 36px -11px var(--box-shadow-light-color);
+	box-shadow: 0px 24px 36px -11px var(--box-shadow-light-color);
 	&:hover, &:active, &:focus {
 		outline: none;
 	}
 	&.btn-primary {
 		background: $primary !important;
 		border: 1px solid $primary !important;
-		color: $white !important;
+		color: var(--white-color) !important; // Text on primary button
 		&:hover {
 			border: 1px solid $primary;
-			background: transparent;
-			color :$primary;
+			background: transparent !important; // Important to override inline style potential
+			color :$primary !important;
 		}
 		&.btn-outline-primary {
 			border: 1px solid $primary;
@@ -638,18 +799,18 @@ h1, h2, h3, h4, h5,
 			&:hover {
 				border: 1px solid transparent;
 				background: $primary;
-				color :$white;
+				color :var(--white-color);
 			}
 		}
 	}
 	&.btn-secondary {
 		background: $secondary !important;
 		border: 1px solid $secondary !important;
-		color: $white !important;
+		color: var(--white-color) !important; // Text on secondary button
 		&:hover {
 			border: 1px solid $secondary;
-			background: transparent;
-			color :$secondary;
+			background: transparent !important;
+			color :$secondary !important;
 		}
 		&.btn-outline-secondary {
 			border: 1px solid $secondary;
@@ -658,20 +819,20 @@ h1, h2, h3, h4, h5,
 			&:hover {
 				border: 1px solid transparent;
 				background: $secondary;
-				color :$white;
+				color :var(--white-color);
 			}
 		}
 	}
-	&.btn-outline-white {
-		border-color: rgba($white, .8);
+	&.btn-outline-white { // This class implies it's on a dark background
+		border-color: var(--rgba-white-08);
 		background: none;
 		@include border-radius(5px);
 		border-width: 1px;
-		color: $white;
+		color: var(--white-color); // Text color
 		&:hover, &:focus, &:active {
-			background: $white;
-			border-color: $white;
-			color: $primary;
+			background: var(--white-color); // Background on hover
+			border-color: var(--white-color);
+			color: $primary; // Text color on hover
 		}
 	}
 }
@@ -695,7 +856,7 @@ h1, h2, h3, h4, h5,
 		position: relative;
 		height: 320px;
 		h3{
-			color: $white;
+			color: var(--white-color); // Text on image overlay
 			font-size: 18px;
 			font-weight: 500;
 			position: absolute;
@@ -715,7 +876,7 @@ h1, h2, h3, h4, h5,
 				height: 0;
 				border-style: solid;
 				border-width: 0 0 8px 8px;
-				border-color: transparent transparent darken($primary,15%) transparent;
+				border-color: transparent transparent darken($primary,15%) transparent; // May need dark mode var
 			}
 			&:before{
 				width: 0;
@@ -723,7 +884,7 @@ h1, h2, h3, h4, h5,
 				height: 0;
 				border-style: solid;
 				border-width: 8px 0 0 8px;
-				border-color: transparent transparent transparent darken($primary,15%);
+				border-color: transparent transparent transparent darken($primary,15%); // May need dark mode var
 			}
 		}
 		span{
@@ -734,7 +895,7 @@ h1, h2, h3, h4, h5,
 			background: $primary;
 			padding: 4px 5px 4px 15px;
 			border-radius: 20px 0 0 20px;
-			color: $white;
+			color: var(--white-color);
 			@include transition(.3s);
 			&:after{
 				position: absolute;
@@ -745,7 +906,7 @@ h1, h2, h3, h4, h5,
 				height: 0;
 				border-style: solid;
 				border-width: 5px 0 0 5px;
-				border-color: transparent transparent transparent darken($primary,15%);
+				border-color: transparent transparent transparent darken($primary,15%); // May need dark mode var
 			}
 		}
 	}
@@ -775,7 +936,7 @@ h1, h2, h3, h4, h5,
 			// transform: translateX(-50%);
 			display: inline-block;
 			background: $primary;
-			color: $white;
+			color: var(--white-color);
 			padding: 8px;
 			font-size: 16px;
 			font-weight: 500;
@@ -791,7 +952,7 @@ h1, h2, h3, h4, h5,
 				height: 0;
 				border-style: solid;
 				border-width: 0 0 8px 8px;
-				border-color: transparent transparent darken($primary,15%) transparent;
+				border-color: transparent transparent darken($primary,15%) transparent; // Dark mode var
 			}
 			&:before{
 				width: 0;
@@ -799,7 +960,7 @@ h1, h2, h3, h4, h5,
 				height: 0;
 				border-style: solid;
 				border-width: 8px 0 0 8px;
-				border-color: transparent transparent transparent darken($primary,15%);
+				border-color: transparent transparent transparent darken($primary,15%); // Dark mode var
 			}
 		}
 	}
@@ -812,13 +973,13 @@ h1, h2, h3, h4, h5,
 		margin: 0 auto;
 		width: 90%;
 		position: relative;
-		// border: 1px solid rgba(0,0,0,.08);
+		// border: 1px solid var(--rgba-black-005);
 		border-top: none;
 		margin-top: -40px;
-		background: $white;
-		-webkit-box-shadow: 0px 10px 23px -8px rgba(0,0,0,.11);
-		-moz-box-shadow: 0px 10px 23px -8px rgba(0,0,0,.11);
-		box-shadow: 0px 10px 23px -8px rgba(0,0,0,.11);
+		background: var(--bg-color); // Changed from $white
+		-webkit-box-shadow: 0px 10px 23px -8px var(--box-shadow-color);
+		-moz-box-shadow: 0px 10px 23px -8px var(--box-shadow-color);
+		box-shadow: 0px 10px 23px -8px var(--box-shadow-color);
 		span{
 			font-size: 13px;
 		}
@@ -833,7 +994,7 @@ h1, h2, h3, h4, h5,
 			margin-bottom: 0;
 			font-weight: 500;
 			a{
-				color: $black;
+				color: var(--text-color-dark); // Changed from $black
 			}
 		}
 		ul{
@@ -842,7 +1003,7 @@ h1, h2, h3, h4, h5,
 			li{
 				display: inline-block;
 				margin-right: 10px;
-				color: lighten($black,70%);
+				color: var(--text-lighten-black-70);
 				span{
 					color: $primary;
 					margin-right: 10px;
@@ -856,7 +1017,7 @@ h1, h2, h3, h4, h5,
 			.price{
 				padding-left: 15px;
 				padding-right: 15px;
-				background: $darken;
+				background: $darken; // Use darken variable
 			}
 		}
 	}
@@ -877,11 +1038,15 @@ h1, h2, h3, h4, h5,
 		h3{
 			font-size: 18px;
 			font-weight: 500;
+			color: var(--text-color-dark); // Added for consistency
+		}
+		p { // Added for consistency
+			color: var(--text-color);
 		}
 	}
 	&.services-1{
 		width: 100%;
-		background: $primary;
+		background: $primary; // This is an image background, primary is likely overlay
 		padding: 30px;
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -889,7 +1054,7 @@ h1, h2, h3, h4, h5,
 		position: relative;
 		margin-bottom: 30px;
 		z-index: 0;
-		&:after{
+		&:after{ // Overlay
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -898,6 +1063,7 @@ h1, h2, h3, h4, h5,
 			content: '';
 			opacity: .5;
 			z-index: -1;
+			// background is set by color-* classes
 		}
 		.icon{
 			width: 115px;
@@ -907,7 +1073,7 @@ h1, h2, h3, h4, h5,
 			background: $primary;
 			position: relative;
 			span{
-				color: $white;
+				color: var(--white-color); // Icon on primary bg
 				font-size: 50px;
 			}
 			&:after{
@@ -919,36 +1085,21 @@ h1, h2, h3, h4, h5,
 				height: 0;
 				border-style: solid;
 				border-width: 0 0 5px 5px;
-				border-color: transparent transparent darken($primary,15%) transparent;
+				border-color: transparent transparent darken($primary,15%) transparent; // Dark mode var
 			}
 		}
 		.media-body{
-			color: rgba(255,255,255,.8);
+			color: var(--rgba-white-08); // Text on primary/image bg
 			h3{
-				color: $white;
+				color: var(--white-color); // Heading on primary/image bg
 			}
 		}
 	}
-	&.color-1{
-		&:after{
-			background: #1089ff;
-		}
-	}
-	&.color-2{
-		&:after{
-			background: #048998;
-		}
-	}
-	&.color-3{
-		&:after{
-			background: #00a8b5;
-		}
-	}
-	&.color-4{
-		&:after{
-			background: #ff5959;
-		}
-	}
+	// These colors are for the :after overlay. May need dark mode adjustments if they look bad.
+	&.color-1{ &:after{ background: #1089ff;} }
+	&.color-2{ &:after{ background: #048998;} }
+	&.color-3{ &:after{ background: #00a8b5;} }
+	&.color-4{ &:after{ background: #ff5959;} }
 }
 
 
@@ -956,7 +1107,7 @@ h1, h2, h3, h4, h5,
 
 // USEFUL CODE
 .aside-stretch{
-	background: lighten($primary,10%);
+	background: lighten($primary,10%); // This creates a lighter primary. May need dark mode var
 	&:after{
 		position: absolute;
 		top: 0;
@@ -964,7 +1115,7 @@ h1, h2, h3, h4, h5,
 		bottom: 0;
 		content: '';
 		width: 360%;
-		background: lighten($primary,10%);
+		background: lighten($primary,10%); // May need dark mode var
 		// background: #333644;
 	}
 	@include media-breakpoint-down(sm){
@@ -979,13 +1130,14 @@ h1, h2, h3, h4, h5,
 
 .form-control {
 	height: 52px!important;
-	background: $white!important;
-	color: $black!important;
+	background: var(--input-bg-color)!important;
+	color: var(--input-text-color)!important;
 	font-size: 18px;
 	border-radius: 5px;
 	box-shadow: none!important;
+	border: 1px solid var(--border-color); // Added border for visibility
 	&:focus, &:active {
-		border-color: $black;
+		border-color: $primary; // Changed from $black
 	}
 }
 textarea.form-control {
@@ -1008,7 +1160,7 @@ textarea.form-control {
 .bg-primary {
 	background: $primary!important;
 }
-.bg-darken {
+.bg-darken { // This class uses $darken. $darken is now a CSS var.
 	background: $darken!important;
 }
 
@@ -1017,23 +1169,23 @@ textarea.form-control {
 .ftco-about{
 	position: relative;
 	z-index: 0;
-	.overlay{
+	.overlay{ // This is an overlay on an image.
 		position: absolute;
 		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
 		content: '';
-		opacity: .1;
-		background: $black;
+		opacity: .1; // Consider if this opacity works well in dark mode
+		background: var(--black-color); // Switched from $black
 		z-index: -1;
 	}
 	.img{
 		margin-top: -100px;
-		-webkit-box-shadow: 0px 10px 23px -8px rgba(0,0,0,0.11);
-		-moz-box-shadow: 0px 10px 23px -8px rgba(0,0,0,0.11);
-		box-shadow: 0px 10px 23px -8px rgba(0,0,0,0.11);
-		border: 15px solid $white;
+		-webkit-box-shadow: 0px 10px 23px -8px var(--box-shadow-color);
+		-moz-box-shadow: 0px 10px 23px -8px var(--box-shadow-color);
+		box-shadow: 0px 10px 23px -8px var(--box-shadow-color);
+		border: 15px solid var(--white-color); // Border around image
 		@include media-breakpoint-down(sm){
 			height: 400px;
 		}
@@ -1046,7 +1198,7 @@ textarea.form-control {
 }
 
 .media-custom{
-	background: $white;
+	background: var(--bg-color); // Changed from $white
 	.media-body{
 		.name{
 			font-weight: 500;
@@ -1056,7 +1208,7 @@ textarea.form-control {
 		}
 		.position{
 			font-size: 13px;
-			color: lighten($black, 85%);
+			color: var(--text-lighten-black-85);
 		}
 	}
 }
@@ -1069,10 +1221,11 @@ textarea.form-control {
 		h3{
 			font-size: 20px;
 			font-weight: 600;
+			color: var(--text-color-dark); // Added
 		}
 	}
 	.bio{
-
+		color: var(--text-color); // Added
 	}
 }
 
@@ -1081,6 +1234,7 @@ textarea.form-control {
 	padding: 7em 0;
 	position: relative;
 	width: 100%;
+	background-color: var(--bg-color); // Ensure sections adopt bg color
 	@include media-breakpoint-down(sm){
 		padding: 6em 0;
 	}
@@ -1093,17 +1247,17 @@ textarea.form-control {
 	padding-bottom: 0 !important;
 }
 
-.ftco-bg-dark {
-	background: #3c312e;
+.ftco-bg-dark { // This implies a dark background, might need specific dark mode var if not already covered
+	background: #3c312e; // Specific color, check dark mode appearance
 }
 
 
 //INTRO
 .ftco-intro{
-	color:rgba(255,255,255,.8);
+	color: var(--rgba-white-08); // Assuming this is on a dark/image background
 	z-index: 0;
 	overflow: hidden;
-	.img{
+	.img{ // This has a background image
 		padding: 3em;
 		position: relative;
 		z-index: 0;
@@ -1119,7 +1273,7 @@ textarea.form-control {
 			bottom: 0;
 			content: '';
 			opacity: .6;
-			background: $secondary;
+			background: $secondary; // Overlay color
 			z-index: -1;
 		}
 	}
@@ -1128,7 +1282,7 @@ textarea.form-control {
 		background-position: center center !important;
 	}
 	h2{
-		color: $white;
+		color: var(--white-color); // Text on overlay
 		font-size: 24px;
 		font-weight: 700;
 		text-transform: uppercase;
@@ -1136,7 +1290,7 @@ textarea.form-control {
 			font-size: 20px;
 		}
 		span{
-			background: $primary;
+			background: $primary; // Span background on text
 		}
 	}
 }
@@ -1145,15 +1299,17 @@ textarea.form-control {
 	font-size: 16px;
 	padding: 7em 0;
 	z-index: 0;
-	border-top: 1px solid rgba(0,0,0,.05);
+	background-color: var(--footer-bg); // Footer background
+	border-top: 1px solid var(--rgba-black-005); // Use themed border color
 	.ftco-footer-logo {
 		text-transform: uppercase;
 		letter-spacing: .1em;
+		color: var(--footer-heading-color); // Added
 	}
 	.ftco-footer-widget {
 		h2 {
 			font-weight: normal;
-			color: $black;
+			color: var(--footer-heading-color);
 			margin-bottom: 40px;
 			font-size: 18px;
 			font-weight: 600;
@@ -1161,35 +1317,37 @@ textarea.form-control {
 		ul{
 			li{
 				a{
-					color: rgba(0,0,0,.5);
-					span{
-						color: rgba(0,0,0,.1);
+					color: var(--footer-link-color);
+					span{ // Icon color in link?
+						color: var(--rgba-black-01); // Original was rgba(0,0,0,.1)
 					}
 				}
 			}
 		}
-		.btn-primary{
-			background: $white !important;
-			border: 2px solid $white !important;
+		.btn-primary{ // Button within footer
+			background: var(--white-color) !important; // "White" button
+			border: 2px solid var(--white-color) !important;
+			color: var(--primary-color) !important; // Primary text on "white" button
 			&:hover{
-				background: $white;
-				border: 2px solid $white !important;
+				background: var(--white-color);
+				border: 2px solid var(--white-color) !important;
+				color: darken($primary, 10%) !important;
 			}
 		}
 	}
 	p {
-		color: rgba(0,0,0, .5);
+		color: var(--footer-text-color);
 	}
 	a {
-		color: rgba(0,0,0, .5);
+		color: var(--footer-link-color);
 		&:hover {
-			color: $primary;
+			color: var(--footer-link-hover-color);
 		}
 	}
-	.ftco-heading-2 {
+	.ftco-heading-2 { // Another heading style in footer
 		font-size: 17px;
 		font-weight: 400;
-		color: $black;
+		color: var(--footer-heading-color);
 	}
 }
 
@@ -1204,20 +1362,21 @@ textarea.form-control {
 			width: 40px;
 			display: block;
 			float: left;
-			color: $primary;
+			// color: $primary; // Removed, background is primary
 			border-radius: 50%;
 			position: relative;
-			background: $primary;
-			span {
+			background: var(--footer-social-bg);
+			span { // Icon
 				position: absolute;
 				font-size: 18px;
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
-				color: $white !important;
+				color: var(--footer-social-icon-color) !important;
 			}
 			&:hover {
-				color: $primary;
+				// color: $primary; // Removed
+				opacity: 0.8;
 			}
 		}
 	}
@@ -1227,6 +1386,7 @@ textarea.form-control {
 		display: inline-block;
 		a {
 			margin: 0 10px 10px 0;
+			color: var(--footer-link-color); // Added
 			&:hover, &:focus {
 				color: $primary;
 			}
@@ -1242,21 +1402,22 @@ textarea.form-control {
 	}
 }
 .ftco-media {
-	background: $white;
+	background: var(--bg-color); // Changed from $white
 	border-radius: 0px;
 	.heading {
 		font-weight: normal;
+		color: var(--text-color-dark); // Added
 	}
 	&.ftco-media-shadow {
 		padding: 40px;
-		background: $white;
-		box-shadow: 0 10px 50px -15px rgba(0,0,0,.3);
+		background: var(--bg-color); // Changed from $white
+		box-shadow: 0 10px 50px -15px var(--box-shadow-dark-color); // var(--box-shadow-dark-color) used for stronger shadow
 		transition: .2s all ease;
 		position: relative;
 		top: 0;
 		&:hover, &:focus {
 			top: -3px;
-			box-shadow: 0 10px 70px -15px rgba(0,0,0,.3);
+			box-shadow: 0 10px 70px -15px var(--box-shadow-dark-color);
 		}
 	}
 	.icon {
@@ -1283,35 +1444,41 @@ textarea.form-control {
 
 #map {
 	width: 100%;
+	// In dark mode, Google Maps might need styling options via JS API if default map is too light.
+	// Or, apply a CSS filter: `filter: invert(90%) hue-rotate(180deg);` as a simple fix.
 	@include media-breakpoint-down(md) {
 		height: 300px;
 	}
 }
 
+body.dark-mode #map {
+	// filter: invert(100%) hue-rotate(180deg) contrast(90%); // Example filter
+}
 
-@-webkit-keyframes pulse {
+
+@-webkit-keyframes pulse { // Pulse animation uses $primary. This should be fine.
   0% {
-    -webkit-box-shadow: 0 0 0 0 rgba($primary, 0.4);
+    -webkit-box-shadow: 0 0 0 0 rgba(var(--primary-color), 0.4);
   }
   70% {
-      -webkit-box-shadow: 0 0 0 30px rgba($primary, 0);
+      -webkit-box-shadow: 0 0 0 30px rgba(var(--primary-color), 0);
   }
   100% {
-      -webkit-box-shadow: 0 0 0 0 rgba($primary, 0);
+      -webkit-box-shadow: 0 0 0 0 rgba(var(--primary-color), 0);
   }
 }
 @keyframes pulse {
   0% {
-    -moz-box-shadow: 0 0 0 0 rgba($primary, 0.4);
-    box-shadow: 0 0 0 0 rgba($primary, 0.4);
+    -moz-box-shadow: 0 0 0 0 rgba(var(--primary-color), 0.4);
+    box-shadow: 0 0 0 0 rgba(var(--primary-color), 0.4);
   }
   70% {
-      -moz-box-shadow: 0 0 0 30px rgba($primary, 0);
-      box-shadow: 0 0 0 30px rgba($primary, 0);
+      -moz-box-shadow: 0 0 0 30px rgba(var(--primary-color), 0);
+      box-shadow: 0 0 0 30px rgba(var(--primary-color), 0);
   }
   100% {
-      -moz-box-shadow: 0 0 0 0 rgba($primary, 0);
-      box-shadow: 0 0 0 0 rgba($primary, 0);
+      -moz-box-shadow: 0 0 0 0 rgba(var(--primary-color), 0);
+      box-shadow: 0 0 0 0 rgba(var(--primary-color), 0);
   }
 }
 
@@ -1328,6 +1495,7 @@ textarea.form-control {
 		font-size: 40px;
 		font-weight: 600;
 		line-height: 1.4;
+		color: var(--text-color-dark); // Added
 		span{
 			font-weight: 400;
 		}
@@ -1335,16 +1503,16 @@ textarea.form-control {
 			font-size: 28px;
 		}
 	}
-	&.heading-section-white{
+	&.heading-section-white{ // This implies text should be light, as it's on a dark/image background
 		.subheading{
-			color: rgba(255,255,255,.9);
+			color: var(--rgba-white-09);
 		}
 		h2{
 			font-size: 40px;
-			color: $white;
+			color: var(--white-color);
 		}
 		p{
-			color: rgba(255,255,255,.9);
+			color: var(--rgba-white-09);
 		}
 	}
 }
@@ -1367,7 +1535,7 @@ textarea.form-control {
 
 
 //TESTIMONY
-.testimony-section, .ftco-select-destination{
+.testimony-section, .ftco-select-destination{ // These have image backgrounds with overlays
 	position: relative;
 	.overlay{
 		position: absolute;
@@ -1376,7 +1544,10 @@ textarea.form-control {
 		right: 0;
 		bottom: 0;
 		content: '';
-		@include gradient-background();
+		// @include gradient-background(); // This is a specific blue/green gradient, might clash.
+		// Using a semi-transparent dark overlay instead for dark mode might be better.
+		// Or define a dark mode version of the gradient. For now, keeping it.
+		background: var(--hero-overlay-bg); // Fallback or primary overlay for dark mode
 		opacity: .6;
 	}
 	.owl-carousel{
@@ -1400,14 +1571,14 @@ textarea.form-control {
 			span {
 				&:before {
 					font-size: 30px;
-					color: rgba(0,0,0,.5);
+					color: var(--rgba-black-07); // Nav arrow color
 					@include transition(.3s);
 				}
 			}
 			&:hover,&:focus{
 				span{
 					&:before{
-						color: $white;
+						color: var(--text-color-dark); // Nav arrow hover color
 					}
 				}
 			}
@@ -1445,9 +1616,9 @@ textarea.form-control {
 			height: 10px;
 			margin: 5px;
 			border-radius: 50%;
-			background: rgba(0,0,0,.1);
+			background: var(--rgba-black-01); // Dot color
 			&.active, &:focus {
-				background: $primary;
+				background: $primary; // Active dot color
 				outline: none;
 			}
 		}
@@ -1456,12 +1627,12 @@ textarea.form-control {
 .testimony-wrap{
 	display: block;
 	position: relative;
-	background: rgba(255,255,255,1);
+	background: var(--bg-color); // Changed from rgba(255,255,255,1)
 	padding: 0 20px;
-	border: 1px solid rgba(0,0,0,.02);
-	-webkit-box-shadow: 0px 5px 21px -14px rgba(0,0,0,0.14);
-	-moz-box-shadow: 0px 5px 21px -14px rgba(0,0,0,0.14);
-	box-shadow: 0px 5px 21px -14px rgba(0,0,0,0.14);
+	border: 1px solid var(--rgba-black-002);
+	-webkit-box-shadow: 0px 5px 21px -14px var(--box-shadow-color);
+	-moz-box-shadow: 0px 5px 21px -14px var(--box-shadow-color);
+	box-shadow: 0px 5px 21px -14px var(--box-shadow-color);
 	@include border-radius(5px);
 	.user-img{
 		width: 80px;
@@ -1473,14 +1644,15 @@ textarea.form-control {
 		font-weight: 500;
 		font-size: 18px;
 		margin-bottom: 0;
-		color: $black;
+		color: var(--text-color-dark); // Changed from $black
 	}
 	.position{
 		font-size: 16px;
-		color: lighten($black,80%);
-		color: $primary;
+		// color: var(--text-lighten-black-80); // Original was lighten($black,80%)
+		color: $primary; // It was also $primary later, $primary is more prominent
 	}
 	.text{
+		p { color: var(--text-color); } // Added for text within testimony
 		.star{
 			color: $primary;
 		}
@@ -1505,7 +1677,7 @@ textarea.form-control {
 	cursor: zoom-in;
 }
 .mfp-with-zoom .mfp-container,
-.mfp-with-zoom.mfp-bg {
+.mfp-with-zoom.mfp-bg { // Magnific popup background
   opacity: 0;
   -webkit-backface-visibility: hidden;
   -webkit-transition: all 0.3s ease-out; 
@@ -1514,11 +1686,12 @@ textarea.form-control {
   transition: all 0.3s ease-out;
 }
 
-.mfp-with-zoom.mfp-ready .mfp-container {
+.mfp-with-zoom.mfp-ready .mfp-container { // Popup content area
     opacity: 1;
 }
-.mfp-with-zoom.mfp-ready.mfp-bg {
+.mfp-with-zoom.mfp-ready.mfp-bg { // Popup overlay
     opacity: 0.8;
+    background: var(--hero-overlay-bg); // Use a theme color for overlay
 }
 
 .mfp-with-zoom.mfp-removing .mfp-container, 
@@ -1539,8 +1712,8 @@ textarea.form-control {
 		right: 0;
 		content: '';
 		z-index: -1;
-		opacity: 0;
-		background: $black;
+		opacity: 0; // Was 0, so effectively transparent
+		background: var(--black-color); // Changed from $black
 	}
 }
 .ftco-counter {
@@ -1567,7 +1740,7 @@ textarea.form-control {
 		span{
 			display: block;
 			font-size: 14px;
-			color: rgba(0,0,0,.7);
+			color: var(--rgba-black-07); // Text color for counter
 			margin-bottom: 10px;
 		}
 	}
@@ -1577,10 +1750,10 @@ textarea.form-control {
 		margin: 0 auto;
 		// background: lighten($primary,20%);
 		@include border-radius(50%);
-		span{
-			color: $white;
+		span{ // This icon uses a gradient text effect.
+			color: $white; // Fallback, but gradient is applied
 			font-size: 48px;
-			@include gradient-background();
+			@include gradient-background(); // This is the blue/green gradient.
 			-webkit-background-clip: text;
 		  -webkit-text-fill-color: transparent;
 		}
@@ -1602,7 +1775,7 @@ textarea.form-control {
 	display: block;
 	width: 100%;
 	height: 270px;
-	z-index: -1;
+	z-index: -1; // Should be 0 or positive if it's content block
 }
 .blog-entry{
 	position: relative;
@@ -1618,17 +1791,17 @@ textarea.form-control {
 		margin: 0 auto;
 		z-index: 1;
 		margin-top: -40px;
-		background: $white;
-		-webkit-box-shadow: 0px 10px 23px -8px rgba(0,0,0,.11);
-		-moz-box-shadow: 0px 10px 23px -8px rgba(0,0,0,.11);
-		box-shadow: 0px 10px 23px -8px rgba(0,0,0,.11);
+		background: var(--bg-color); // Changed from $white
+		-webkit-box-shadow: 0px 10px 23px -8px var(--box-shadow-color);
+		-moz-box-shadow: 0px 10px 23px -8px var(--box-shadow-color);
+		box-shadow: 0px 10px 23px -8px var(--box-shadow-color);
 		padding: 20px;
 		.heading {
 			font-size: 18px;
 			margin-bottom: 16px;
 			font-weight: 600;
 			a {
-				color: $black;
+				color: var(--text-color-dark); // Changed from $black
 				&:hover, &:focus, &:active {
 					color: $primary;
 				}
@@ -1642,15 +1815,15 @@ textarea.form-control {
 			margin-bottom: 0;
 			font-size: 14px;
 			a {
-				color: lighten($black, 50%);
+				color: var(--text-lighten-black-50);
 				font-size: 15px;
 				&:hover {
-					color: lighten($black, 40%);
+					color: var(--text-lighten-black-40);
 				}
 			}
 		}
 	}
-	.topp{
+	.topp{ // The date ribbon
 		position: absolute;
 		top: -7px;
 		left: 20px;
@@ -1667,7 +1840,7 @@ textarea.form-control {
 			height: 0;
 			border-style: solid;
 			border-width: 0 0 7px 7px;
-			border-color: transparent transparent darken($primary,15%) transparent;
+			border-color: transparent transparent darken($primary,15%) transparent; // Dark mode var
 		}
 		&:before{
 			width: 0;
@@ -1675,7 +1848,7 @@ textarea.form-control {
 			height: 0;
 			border-style: solid;
 			border-width: 7px 0 0 7px;
-			border-color: transparent transparent transparent darken($primary,15%);
+			border-color: transparent transparent transparent darken($primary,15%); // Dark mode var
 		}
 	}
 	.one{
@@ -1687,19 +1860,19 @@ textarea.form-control {
 	span.day{
 		font-size: 50px;
 		font-weight: 300;
-		color: $white;
+		color: var(--white-color); // Text on primary ribbon
 		line-height: 1;
 	}
 	span.yr,span.mos{
 		display: block;
 		font-size: 13px;
 		line-height: 1.4;
-		color: rgba(255,255,255,.8);
+		color: var(--rgba-white-08); // Text on primary ribbon
 	}
 }
 
 
-.block-23 {
+.block-23 { // Contact info list
 	ul {
 		padding: 0;
 		li {
@@ -1709,13 +1882,13 @@ textarea.form-control {
 				line-height: 1.5;
 				margin-bottom: 15px;
 			}
-			span{
-				color: rgba(0,0,0, .7);
+			span{ // Text part
+				color: var(--rgba-black-07); // Default was rgba(0,0,0, .7)
 			}
-			.icon, .text {
+			.icon, .text { // Text is also a class here
 				display: table-cell;
 				vertical-align: top;
-				color: rgba(0,0,0,.5) !important;
+				color: var(--footer-text-color) !important; // Default was rgba(0,0,0,.5)
 			}
 			.icon {
 				width: 40px;
@@ -1728,7 +1901,7 @@ textarea.form-control {
 	}
 }
 
-.block-27 {
+.block-27 { // Pagination
 	ul {
 		padding: 0;
 		margin: 0;
@@ -1737,19 +1910,19 @@ textarea.form-control {
 			margin-bottom: 4px;
 			font-weight: 400;
 			a,span {
-				color: $black;
+				color: var(--text-color-dark); // Changed from $black
 				text-align: center;
 				display: inline-block;
 				width: 40px;
 				height: 40px;
 				line-height: 40px;
 				border-radius: 50%;
-				border: 1px solid lighten($black,90%);
+				border: 1px solid var(--text-lighten-black-90);
 			}
 			&.active, &:hover {
 				a, span {
-					background: $darken;
-					color: $white;
+					background: $darken; // Use darken variable
+					color: var(--white-color); // Text on darken bg
 					border: 1px solid transparent;
 				}
 			}
@@ -1762,15 +1935,17 @@ textarea.form-control {
 	.contact-info{
 		p{
 			a{
-				color: lighten($black,10%);
+				color: var(--text-lighten-black-10);
 			}
-			span{}
+			span{
+				color: var(--text-color); // Added
+			}
 		}
 	}
-	.box{
+	.box{ // Info boxes (address, phone, email)
 		width: 100%;
 		display: block;
-		background: rgba(0,0,0,.05);
+		background: var(--rgba-black-005); // Light bg for box
 		.icon{
 			width: 100px;
 			height: 100px;
@@ -1778,8 +1953,8 @@ textarea.form-control {
 			margin: 0 auto;
 			margin-bottom: 15px;
 			@include border-radius(50%);
-			span{
-				color: $white;
+			span{ // Icon inside
+				color: var(--white-color); // Icon on primary
 				font-size: 30px;
 			}
 		}
@@ -1793,19 +1968,24 @@ textarea.form-control {
 		width: 100%;
 	}
 }
-.block-9 {
+.block-9 { // Contact form wrapper
 
-	.form-control {
+	.form-control { // Inputs within contact form
 		outline: none!important;
 		box-shadow: none!important;
 		font-size: 15px;
+		// General .form-control styles should cover this.
+		// If specific overrides are needed:
+		background: var(--input-bg-color) !important;
+		color: var(--input-text-color) !important;
+		border: 1px solid var(--border-color) !important;
 	}
-	#map {
+	#map { // Map specific to contact section if different from global
 	}
 }
 
 
-//### .block-21
+//### .block-21 (Recent posts in sidebar)
 .block-21 {
 	.blog-img{
 		display: block;
@@ -1818,7 +1998,7 @@ textarea.form-control {
 			font-size: 18px;
 			font-weight: 500;
 			a {
-				color: $black;
+				color: var(--text-color-dark); // Changed from $black
 				&:hover, &:active, &:focus {
 					color: $primary;
 				}
@@ -1830,7 +2010,7 @@ textarea.form-control {
 				font-size: 12px;
 				margin-right: 5px;
 				a {
-					color: lighten($black, 50%);
+					color: var(--text-lighten-black-50);
 				}
 			}
 		}
@@ -1838,11 +2018,11 @@ textarea.form-control {
 }
 
 /* Blog*/
-.post-info {
+.post-info { // Meta info on blog single page (date, author etc)
 	font-size: 12px;
 	text-transform: uppercase;
 	font-weight: bold;
-	color: $white;
+	color: var(--white-color); // Assuming this is on a dark/image header
 	letter-spacing: .1em;
 	> div {
 		display: inline-block;
@@ -1863,17 +2043,22 @@ textarea.form-control {
 		margin-bottom: 7px;
 		margin-right: 4px;
 		border-radius: 4px;
-		color: $black;
-		border: 1px solid #ccc;
+		color: var(--text-color-dark); // Changed from $black
+		border: 1px solid var(--ccc); // Themed border
 		font-size :11px;
 		&:hover {
-			border: 1px solid #000;
+			border: 1px solid var(--text-color-dark); // Themed hover border
+			background-color: var(--section-bg-light); // Slight bg on hover
 		}
 	}
 }
 
 .comment-form-wrap {
 	clear: both;
+	background-color: var(--bg-color); // Added
+	padding: 20px; // Added
+	border: 1px solid var(--border-color); // Added
+	border-radius: 5px; // Added
 }
 
 .comment-list {
@@ -1884,6 +2069,9 @@ textarea.form-control {
 		margin: 0;
 		float: left;
 		width: 100%;
+		background-color: var(--section-bg-light); // Indented comment background
+		border-left: 2px solid var(--primary-color);
+		padding-left: 15px;
 	}
 	li {
 		padding: 0;
@@ -1903,24 +2091,25 @@ textarea.form-control {
 		.comment-body {
 			float: right;
 			width: calc(100% - 80px);
-			h3 {
+			h3 { // Comment author name
 				font-size: 16px;
 				font-weight: 600;
+				color: var(--text-color-dark); // Added
 			}
-			.meta {
+			.meta { // Comment date
 				text-transform: uppercase;
 				font-size: 13px;
 				letter-spacing: .1em;
-				color: #ccc;
+				color: var(--primary); // Original: #ccc then $primary
 				font-weight: 500;
-				color: $primary;
 				display: block;
 				margin-bottom: 10px;
 			}
-			.reply {
+			p { color: var(--text-color); } // Comment text
+			.reply { // Reply button
 				padding: 5px 10px;
-				background: lighten($black, 90%);
-				color: $white;
+				// background: var(--text-lighten-black-90); // Original
+				color: var(--white-color); // Text on button
 				text-transform: uppercase;
 				font-size: 11px;
 				letter-spacing: .1em;
@@ -1928,21 +2117,27 @@ textarea.form-control {
 				border-radius: 4px;
 				background: $primary;
 				&:hover {
-					color: $white;
-					background: lighten($black, 0%);
+					color: var(--white-color);
+					background: darken($primary, 10%); // Darken primary on hover
 				}
 			}
 		}
 	}
 }
 
-.search-form {
+.search-form { // Sidebar search form
 	.form-group {
 		position: relative;
 		input {
 			padding-right: 50px;
 			font-size: 14px;
 			border: none;
+			background: var(--input-bg-color); // Input bg
+			color: var(--input-text-color); // Input text
+			border: 1px solid var(--border-color); // Input border
+			&::placeholder {
+				color: var(--input-placeholder-color);
+			}
 		}
 	}
 	.icon {
@@ -1950,51 +2145,53 @@ textarea.form-control {
 		top: 50%;
 		right: 20px;
 		transform: translateY(-50%);
+		color: var(--input-text-color); // Icon color to match text
 	}
 }
 
 
-//SIDEBAR SEARCH
+//SIDEBAR SEARCH (different from .search-form)
 .sidebar-wrap{
 	margin-bottom: 60px;
 	.heading{
 		font-size: 18px;
 		text-transform: uppercase;
+		color: var(--text-color-dark); // Added
 	}
 	.fields {
 		width: 100%;
 		position: relative;
-		.form-control {
+		.form-control { // Sidebar input fields
 			box-shadow: none!important;
 			border: transparent;
-			background: $white !important;
-			color: lighten($black,30%) !important;
-			border: 1px solid lighten($black,90%);
+			background: var(--input-bg-color) !important;
+			color: var(--input-text-color) !important; // Original: lighten($black,30%)
+			border: 1px solid var(--border-color) !important; // Original: lighten($black,90%)
 			font-size: 14px;
 			width: 100%;
 			height: 52px !important;
 			padding: 10px 20px;
 			@include border-radius(0);
 			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-			  color: lighten($black,30%);
+			  color: var(--input-placeholder-color); // Original: lighten($black,30%)
 			}
 			&::-moz-placeholder { /* Firefox 19+ */
-			  color: lighten($black,30%);
+			  color: var(--input-placeholder-color);
 			}
 			&:-ms-input-placeholder { /* IE 10+ */
-			  color: lighten($black,30%);
+			  color: var(--input-placeholder-color);
 			}
 			&:-moz-placeholder { /* Firefox 18- */
-			  color: lighten($black,30%);
+			  color: var(--input-placeholder-color);
 			}
 		}
-		.icon {
+		.icon { // Icon in sidebar input
 			position: absolute;
 			top: 50%;
 			right: 30px;
 			font-size: 14px;
 			transform: translateY(-50%);
-			color: rgba($black,.7);
+			color: var(--rgba-black-07); // Original: rgba($black,.7)
 			@include media-breakpoint-down(sm) {
 				right: 10px;
 			}
@@ -2010,14 +2207,18 @@ textarea.form-control {
 			position: relative;
 			select {
 				appearance: none;
+				background-color: var(--input-bg-color); // Select bg
+				color: var(--input-text-color); // Select text
+				border: 1px solid var(--border-color); // Select border
 			}
 		}
 	}
 	.form-group{
-		.btn{
+		.btn{ // Button in sidebar
 			width: 100%;
 			display: block !important;
 			@include border-radius(2px);
+			// Assuming it's a .btn-primary, general styles will apply
 		}
 	}
 }
@@ -2028,23 +2229,26 @@ textarea.form-control {
 	padding: 10px;
 	font-size: 15px;
 	width: 100%;
+	background: var(--section-bg-light); // Background for sidebar box
+	border-radius: 5px; // Added
 	
 	*:last-child {
 		margin-bottom: 0;
 	}
-	h3 {
+	h3 { // Sidebar box title
 		font-size: 18px;
 		margin-bottom: 15px;
 		font-weight: 700;
+		color: var(--text-color-dark); // Added
 	}
 }
 
-.categories, .sidelink {
+.categories, .sidelink { // Sidebar category/link lists
 	li {
 		position: relative;
 		margin-bottom: 10px;
 		padding-bottom: 10px;
-		border-bottom: 1px solid gray('300');
+		border-bottom: 1px solid var(--gray-300); // Themed border color
 		list-style: none;
 		&:last-child {
 			margin-bottom: 0;
@@ -2053,17 +2257,17 @@ textarea.form-control {
 		}
 		a {
 			display: block;
-			color: lighten($black,10%);
-			span {
+			color: var(--text-lighten-black-10); // Link color
+			span { // Count span
 				position: absolute;
 				right: 0;
 				top: 0;
-				color: #ccc;
+				color: var(--ccc); // Themed color for count
 			}
 		}
 		&.active {
 			a {
-				color: $black;
+				color: $primary; // Active link color (was $black)
 				font-style: italic;
 			}
 		}
@@ -2078,8 +2282,8 @@ textarea.form-control {
 	left:  50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	background-color: rgba(255,255,255,0.9);
-	box-shadow: 0px 24px 64px rgba(0,0,0,0.24);
+	background-color: var(--loader-bg);
+	box-shadow: 0px 24px 64px var(--box-shadow-dark-color); // rgba(0,0,0,0.24)
 	border-radius:16px;
 	opacity: 0; 
 	visibility: hidden;
@@ -2094,7 +2298,7 @@ textarea.form-control {
 	width:  100%;
 	height: 100%;
 	transform: none;
-	background-color: #fff;
+	background-color: var(--loader-fullscreen-bg);
 	border-radius: 0;
 	box-shadow: none;
 }
@@ -2119,7 +2323,14 @@ textarea.form-control {
   stroke-dashoffset: 0;
   animation: loader-dash 1.5s ease-in-out infinite;
   stroke-linecap: round;
+  stroke: var(--path-stroke); // Path color
 }
+
+// Add a new rule for the path background in the loader, if not already styled by `path-bg` class
+#ftco-loader svg .path-bg { // If there's an element for the background circle of loader
+	stroke: var(--path-bg-stroke); // Background of loader circle
+}
+
 
 @keyframes loader-rotate {
   100% {
